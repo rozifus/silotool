@@ -24,14 +24,18 @@ The following card readers have been tested as working (others may work):
 #### Run from code
 
 ```bash
-$ go run ./silotools/cmd/* {commands}
+$ go run ./cmd/silotools/* {commands}
 ```
 
 #### Build binary and run
 
+Build
+
 ```bash
-$ go build -o silotools ./silotools/cmd/*
+$ go build -o silotools ./cmd/silotools/*
 ```
+
+Run
 
 ```bash
 $ ./silotools {commands}
