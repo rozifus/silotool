@@ -9,6 +9,7 @@ type CliContext struct { }
 
 type CommandLine struct {
 	Silo SiloCmd `cmd`
+	Acr AcrCmd `cmd`
 }
 
 func (commandLine *CommandLine) Run() error {
