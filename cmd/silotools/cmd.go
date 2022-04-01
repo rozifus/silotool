@@ -8,8 +8,10 @@ import (
 type CliContext struct { }
 
 type CommandLine struct {
-	Silo SiloCmd `cmd`
 	Acr AcrCmd `cmd`
+	Chip ChipCmd `cmd`
+	Halo HaloCmd `cmd`
+	Silo SiloCmd `cmd`
 }
 
 func (commandLine *CommandLine) Run() error {

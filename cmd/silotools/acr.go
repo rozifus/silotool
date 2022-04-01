@@ -40,7 +40,7 @@ func (cmd *AcrBuzzerDisableCmd) Run(cliCtx *CliContext) error {
 	cardCtx, err := scard.EstablishContext()
 	if err != nil {
 		return err
-	}
+  	}
 	defer cardCtx.Release()
 
 	card, err := InitializeCard(cardCtx)
@@ -53,6 +53,8 @@ func (cmd *AcrBuzzerDisableCmd) Run(cliCtx *CliContext) error {
 }
 
 func setBuzzerEnabled(card *scard.Card, enabled bool) error {
+	// from https://stackoverflow.com/a/41550221
+
 	var buzzerTargetState byte = 0x00
 	if enabled {
 		buzzerTargetState = 0xff
