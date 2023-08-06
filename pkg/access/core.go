@@ -6,6 +6,8 @@ import (
 	"time"
 
 	"github.com/ebfe/scard"
+
+	"github.com/rozifus/silotools/pkg/byteable"
 )
 
 
@@ -107,4 +109,12 @@ func DoTransmit(card *scard.Card, payload []byte) (rdata []byte, err error) {
 	}
 
 	return result, nil
+}
+
+func TransmitBytes(card *scard.Card, payload []byte) (rdata []byte, err error) {
+	return DoTransmit(card, payload)
+}
+
+func TransmitByteable(card *scard.Card, b byteable.Byteable) (rdata []byte, err error) {
+	return TransmitBytes(card, b.ToBytes())
 }

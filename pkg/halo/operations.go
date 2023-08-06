@@ -16,14 +16,14 @@ func ExecuteCommand(card *scard.Card, payload []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	_, err = access.DoTransmit(card, opSelect)
+	_, err = access.TransmitBytes(card, opSelect)
 	if err != nil {
 		return nil, err
 	}
 
-	opCommand := NewCommandRequestBytes(payload)
+	opCommand := NewCommandRequestByteable(payload)
 
-	resCommand, err := access.DoTransmit(card, opCommand)
+	resCommand, err := access.TransmitByteable(card, opCommand)
 	if err != nil {
 		return nil, err
 	}
